@@ -1,5 +1,7 @@
 ## URTrader 자동매매 프로그램 ⚡
 
+![GitHub repo file count](https://img.shields.io/github/directory-file-count/dotredbee/URTrader) ![GitHub repo size](https://img.shields.io/github/repo-size/dotredbee/URTrader) ![GitHub language count](https://img.shields.io/github/languages/count/dotredbee/URTrader?color=ff0000) ![GitHub top language](https://img.shields.io/github/languages/top/dotredbee/URTrader?color=ff0000)
+
 🧰 세련된 UI 제공을 위해 React와 Electron을 기반으로 제작되었습니다. 🏏 <br /><br />
 📈 마틴 게일 배팅법을 기반으로 제작되었습니다. 📉 <br /><br />
 🚨 해당 프로그램을 이용한 투자의 책임은 본인에게 있습니다. ⚠ <br /><br />
