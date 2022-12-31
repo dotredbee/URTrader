@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+## URTrader 자동매매 프로그램 ⚡
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🧰 세련된 UI 제공을 위해 React와 Electron을 기반으로 제작되었습니다. 🏏 <br /><br />
+📈 마틴 게일 배팅법을 기반으로 제작되었습니다. 📉 <br /><br />
+🚨 해당 프로그램을 이용한 투자의 책임은 본인에게 있습니다. ⚠ <br /><br />
 
-## Available Scripts
+1.실행 관련 ⚡
+-------------
+### 1.1 실행 전 키 설정 방법
+아래 경로로 들어가 설정 해당 코드를 수정해 주세요.<br />
+##### 경로 : public/core/service/AuthService.js
 
-In the project directory, you can run:
+```
+const acKey = "여기에 입력해 주세요."
+```
 
-### `npm start`
+### 1.2 실행
+##### 기본 실행 (배포x)
+```
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##### 배포
+```
+npm release
+```
+<br />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2.기능 🏏
+-------------
+### 2.1 매수, 매도 💰
+자체 다크모드를 지원하고있으며 실시간으로 코인 가격을 받아 화면에 출력해 줍니다. <br />
+또한 자동 매매뿐만 아니라 수동 매매도 지원합니다. <br /><br />
+<img src="https://user-images.githubusercontent.com/101415997/210132897-3e847a7c-5d14-44e8-b7a0-06829f2821b7.PNG" witdh="160" height="320"/>
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 2.2 키 관리자 🔑
+API KEY 수명은 1년이기에 키 교체는 불가피합니다. 때문에 해당 프로그램은 자체적으로 키 관리자를 통해 손쉽게 교체가 가능합니다. <br />
+로컬DB에 이용중인 API KEY가 저장되며 이는 재실행시 변경된 키로 실행됩니다. <br /><br />
+<img src="https://user-images.githubusercontent.com/101415997/210133050-c71970a2-19cf-4e14-8067-6b7b29733765.PNG" witdh="160" height="320"/>
