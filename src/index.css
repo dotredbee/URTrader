@@ -1,13 +1,840 @@
+html,
+head,
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 12px;
+  padding: 0 0;
+  margin: 0 0;
+  overflow: hidden;
+  color : white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+    margin: 0 auto;
+    padding: 0 0;
+    max-width: 1280px;
+    height: 659px;
+    border: 1px solid black;
+    color: white;
+    background-color: #212121;
+    display : flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+button {
+  border: none;
+  padding: 6px 8px;
+  font-size: 1.1rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  outline: none;
+}
+input:focus{
+    outline: none;
+}
+button:focus{
+    outline : none;
+}
+.gnb {
+    flex : 1;
+    position: relative;
+    height: 100%;
+    min-width: 62px;
+    max-width: 62px;
+    background-color: #1a1a1b;
+}
+
+span.strong {
+    color : orange;
+}
+
+.container{
+    height : calc(100% - 24px);
+}
+.container#loading{
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.top-bar{
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color : #1a1a1b;
+    width : 1200px;
+    height : 24px;
+}
+.top-bar .left { 
+    display : flex;
+    flex-direction: row;
+}
+.top-bar .left{
+    margin-right : 100px;   
+}
+.gnb .item {
+  background-color: transparent;
+  display: flex;
+  width: 100%;
+  height: 62px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid white;
+  font-weight: bold;
+  font-size: 1.6rem;
+  transition: 0.3s all linear;
+  cursor: pointer;
+}
+
+.gnb .item > svg {
+    pointer-events: none;
+}
+.gnb .item:hover,
+.gnb .item.active {
+  background-color: orange;
+  font-size : 2.4rem;
+}
+
+.status-bar,
+.trade-status-bar,
+.info-status-bar {
+    position: relative;
+    margin-bottom: 4px;
+    font-size: 1.1rem;
+    padding: 4px 8px;
+    background-color: black;
+    cursor: default;
+    border-radius: 10px;
+    margin-left : 12px;
+    display : flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.status-bar {
+  margin-right: 12px;
+}
+.status-bar > .title{
+    font-size : 1.1rem;
+}
+.trade-status-bar {
+    margin-right : 24px;
+}
+.status-bar .wrap > span.text,
+.info-status-bar .wrap > span.text,
+.trade-status-bar .wrap > span.text{
+    position : relative;
+    margin-left : 6px;
+    text-align: center;
+}
+.status-bar .wrap > span#loading,
+.info-status-bar .wrap > span#loading{
+    position : relative;
+    top : 5px;
+    left : 2px;
+}
+.status-bar .wrap > span.text.signin {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: lightgreen;
+}
+.status-bar .wrap > span.text.signout {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: red;
+}
+.trade-status-bar .wrap > span.text {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: red;
+}
+
+.info-status-bar > .warp {
+    position : relative;
+    
+}
+div#home .account-contents,
+div#home .trade-contents {
+  max-width: 420px;
+  background-color: #1a1a1b;
+  border: 1px solid white;
+  border-top: none;
+  border-radius: 3px;
+}
+
+.frs-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+div#home .account-contents > .title,
+div#home .trade-contents > .title {
+  background-color: orange;
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 4px 2px;
+}
+.account-contents .account {
+  border-bottom: 1px solid white;
+  padding: 8px 6px;
+  transition: 0.3s all linear;
+}
+.account-contents .account:hover,
+div#home .setup-contents > .item:hover,
+div#home .current-contents > .item:hover {
+  font-weight: bold;
+  background-color: orange;
+}
+.account-contents .account:last-of-type {
+  border-bottom: none;
+}
+.account-contents .account > span {
+  font-size: 1.3rem;
+}
+.account-contents .account > .sub {
+  font-weight: bold;
+}
+.account-contents .account > .sub > .small {
+  font-size: 0.8rem;
+  margin-left: 2px;
+}
+div#home .trade-contents .market-contents {
+  padding: 12px 6px;
+  transition: 0.3s all linear;
+  font-size: 1.4rem;
+}
+div#home .trade-contents .market-contents > .title {
+  font-weight: bold;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+}
+div#home .trade-contents .market-contents > .sub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div#home .trade-contents .market-contents > .sub > .small-down {
+  font-size: 0.8rem;
+}
+
+div#home .trade-contents .market-contents:hover {
+  font-size: 1.8rem;
+  background-color: orange;
+}
+div#home .setup-contents > .title,
+div#home .current-contents > .title {
+  padding: 6px 4px;
+  background-color: orange;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+div#home .setup-contents > .item,
+div#home .current-contents > .item {
+  padding: 6px 4px;
+  border-bottom: 1px solid white;
+  font-size: 1.2rem;
+  transition: 0.3s all linear;
+}
+
+div#home .setup-contents > .item:last-of-type {
+  border-bottom: none;
+}
+
+div#home .trade-contents .btn-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+div#home .trade-contents .btn-wrap button {
+  width: 152px;
+  padding: 12px 0;
+}
+div#home .krw-chart-contents {
+  width: 500px;
+  height: 300px;
+  position: relative;
+  top: 10px;
+  left: 0;
+}
+div#trade{
+    display : flex;
+    flex-direction: row;
+    margin : 12px 24px;
+}
+
+div#trade .left {
+    background-color : transparent;
+}
+div#trade .order-contents {
+  position: relative;
+  background-color: #1a1a1b;
+  border: 1px solid white;
+  max-width: 330px;
+  max-height: 372px;
+  float: left;
+}
+
+div#trade .order-contents .order-menu {
+  display: flex;
+}
+
+div#trade .order-contents .order-menu .item {
+  padding: 6px 8px;
+  width: 110px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: colume;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s all linear;
+}
+div#trade .order-contents .order-menu .item > span {
+  pointer-events: none;
+}
+div#trade .order-contents .order-menu .item.active {
+  background-color: orange;
+  font-weight: bold;
+  border-right: none;
+}
+div#trade .order-contents .order-menu .item:hover {
+  background-color: orange;
+  font-weight: bold;
+}
+div#trade .order-contents .order-menu .item:last-of-type {
+  border-right: none;
+}
+div#trade .order-contents .trade-setup-contents {
+  margin: 4px 6px;
+}
+div#trade .order-contents .trade-setup-contents .input-item {
+  padding: 8px 6px;
+  font-size: 1.4rem;
+}
+div#trade
+  .order-contents
+  .trade-setup-contents
+  .input-item
+  > input[type="text"] {
+  border: 3px solid white;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  transition: 0.3s all ease-out;
+}
+div#trade
+  .order-contents
+  .trade-setup-contents
+  .input-item
+  > input[type="text"]:read-only {
+  cursor: default;
+}
+div#trade
+  .order-contents
+  .trade-setup-contents
+  .input-item
+  > input[type="text"]:focus {
+  outline: none;
+  border: 3px solid black;
+}
+div#trade .order-contents .trade-setup-contents .input-item#market {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+div#trade .order-contents .trade-setup-contents .input-item label {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+div#trade
+  .order-contents
+  .trade-setup-contents
+  .input-item
+  label
+  span.small-down {
+  font-size: 1rem;
+}
+div#trade .order-contents .trade-setup-contents > .btn-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+div#trade .order-contents .trade-setup-contents > .btn-wrap button {
+  width: 210px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+div#trade .right{
+    margin-left : 24px;
+    width : 800px;
+}
+div#trade .right .wrap{
+    display : flex;
+    flex-direction: column;
+    width : 100%;
+}
+div#trade .right .wrap > .header {
+    background-color: #1a1a1b;
+    width : 100%;
+    display : flex;
+    flex-direction: column;
+}
+
+div#trade .right .wrap > .header > .title{
+    border : 2px solid white;
+    border-radius: 5px;
+    padding : 10px 12px;
+}
+div#trade .right .wrap > .header > .title > .korean_market{
+    font-size : 2.8rem;
+    font-weight: bold;
+}
+div#trade .right .wrap > .header > .title > .market{
+    font-size : 1.4rem;
+    margin-left : 6px;
+}
+div#trade .right .wrap > .header .price-tab-bar {
+    margin-top : 12px;
+    border : 2px solid white;
+    border-radius: 5px;
+    height : 42px;
+    padding : 4px 12px;
+    display : flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+div#trade .right .wrap > .header .price-tab-bar > .current-price-wrap{
+    flex : 5;
+    height: 100%;
+}
+div#trade .right .wrap > .header .price-tab-bar > .compare-before-wrap{
+    flex : 7;
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height : 100%;
+}
+div#trade .right .wrap > .header .price-tab-bar > .compare-before-wrap > .compare-before-percent-wrap{
+    display : flex;
+    width : 200px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+div#trade .right .wrap > .header .price-tab-bar > .compare-before-wrap > .compare-before-price-wrap{
+    position: relative;
+    flex : 4;
+    display: flex;
+    justify-content: flex-end;
+}
+div#trade .right .wrap > .header .price-tab-bar > .current-price-wrap > .price{
+    font-size : 2.2rem;
+}
+div#trade .right .wrap > .header .price-tab-bar > .current-price-wrap > .unit{
+    font-size : 1.1rem;
+}
+div#trade .right .wrap > .header .price-tab-bar > .compare-before-wrap > .compare-before-percent-wrap > .title{
+    margin-right : 8px;
+    font-size : 1.6rem;
+}
+div#trade .right .wrap > .header .price-tab-bar > .compare-before-wrap > .compare-before-percent-wrap > #price-percent {
+    display : flex;
+    text-align: center;
+    font-size : 1.8rem;
+}
+div#trade .right .wrap > .header .price-tab-bar > .compare-before-wrap > .compare-before-price-wrap .icon {
+    position : relative;
+    top : 2px;
+    margin-right : 6px;
+    font-size : 1.6rem;
+}
+div#trade .right .wrap > .header .price-tab-bar > .compare-before-wrap > .compare-before-price-wrap > #price{
+    font-size : 1.6rem;
+}
+div#trade .right .wrap > .middle {
+    width : 100%;
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top : 12px;
+}
+div#trade .right .wrap > .middle .gap-wrap,
+div#trade .right .wrap > .middle .hour-info-wrap{
+    border : 2px solid white;
+    border-radius: 5px;
+    width : 394px;
+    background-color : #1a1a1b;
+}
+div#trade .right .wrap > .middle .gap-wrap .high,
+div#trade .right .wrap > .middle .gap-wrap .row,
+div#trade .right .wrap > .middle .hour-info-wrap .trade-volume,
+div#trade .right .wrap > .middle .hour-info-wrap .trade-price{
+    padding : 8px 12px;
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+div#trade .right .wrap > .middle .gap-wrap .high .price {
+    color : red;
+}
+div#trade .right .wrap > .middle .gap-wrap .row .price {
+    color : blue;
+}
+div#trade .right .wrap > .middle .gap-wrap .high,
+div#trade .right .wrap > .middle .hour-info-wrap .trade-volume{
+    border-bottom : 1px solid lightgray;
+}
+div#trade .right .wrap > .middle .hour-info-wrap .trade-volume .info > .unit {
+    margin-left : 6px;
+    font-size : 0.8rem;
+}
+div#trade .right .wrap > .middle .hour-info-wrap .trade-price .price > .unit {
+    margin-left : 6px;
+    font-size : 0.8rem;
+}
+div#trade .right .wrap > .bottom {
+    display : flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top : 12px;
+}
+div#trade .right .wrap > .header > .title,
+div#trade .right .wrap > .header .price-tab-bar,
+div#trade .right .wrap > .middle .gap-wrap,
+div#trade .right .wrap > .middle .hour-info-wrap,
+div#trade .right .wrap > .bottom .search-wrap{
+    transition: .2s all ease-in-out;
+}
+div#trade .right .wrap > .header > .title:hover,
+div#trade .right .wrap > .header .price-tab-bar:hover,
+div#trade .right .wrap > .middle .gap-wrap:hover,
+div#trade .right .wrap > .middle .hour-info-wrap:hover{
+    border : 2px solid orange;
+}
+
+div#trade .right .wrap > .bottom .search-wrap:hover{
+    border : 1px solid orange;
+}
+
+div#trade .right .wrap > .bottom .search-wrap{
+    width : 320px;
+    border : 1px solid white;
+    height : 380px;
+}
+div#trade .right .wrap > .bottom .search-wrap .search-input {
+    width : 100%;
+    height : 70px;
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom : 2px solid white;
+}
+div#trade .right .wrap > .bottom .search-wrap .search-input > .wrap {
+    position : relative;
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+div#trade .right .wrap > .bottom .search-wrap .search-input > .wrap .search-icon {
+    position : absolute;
+    top : 6px;
+    left : 24px;
+    font-size : 1.6rem;
+    opacity: 1;
+    transition: .3s all ease-in-out;
+}
+div#trade .right .wrap > .bottom .search-wrap .search-input > .wrap .search-icon.active{
+    opacity: 0;
+}
+div#trade .right .wrap > .bottom .search-wrap .search-input > .wrap input[type="text"]{
+    background-color : #1a1a1b;
+    border : 3px solid white;
+    width : 280px;
+    height : 32px;
+    color : white;
+}
+div#trade .right .wrap > .bottom .search-wrap .search-input > .wrap input[type="text"]:focus{
+    border : 3px solid black;
+}
+div#trade .right .wrap > .bottom .search-wrap .markets{
+    width : 100%;
+    height : 310px;
+    overflow-y: scroll;
+}
+div#trade .right .wrap > .bottom .search-wrap .markets .market {
+    display : flex;
+    padding : 12px 6px;
+    border-bottom : 1px solid white;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+    transition: .3s all linear;
+}
+div#trade .right .wrap > .bottom .search-wrap .markets .market:hover{
+    background-color : orange;
+}
+div#trade .right .wrap > .bottom .search-wrap .markets .market > div{
+    pointer-events: none;
+}
+div#trade .right .wrap > .bottom .search-wrap .markets .market > .korean-name{
+    font-size : 1.4rem;
+}
+div#trade .right .wrap > .bottom .search-wrap .markets .market > .short-name {
+    font-size : 1.0rem;
+    margin-left : 4px;
+}
+
+div#trade .orderbook{
+    width : 452px;
+    margin-left : 24px;
+}
+div#trade .orderbook table{
+    width : 100%;
+    border-collapse: collapse;
+}
+div#trade .orderbook table thead{
+    background-color : orange;
+    border : 1px solid white;
+}
+th, td{
+    border : 1px solid white;
+}
+div#trade .orderbook table thead > tr th{
+    padding : 6px;
+    font-size : 1.2rem;
+}
+div#trade .orderbook table tbody > tr td{
+    font-size : 1.1rem;
+    padding : 8px;
+}
+div#sign {
+    background-color: transparent;
+    width : 100%;
+    position : relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+div#sign .wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top : -32px;
+}
+div#sign .wrap > .title{
+    font-size : 1.8rem;
+    margin-bottom: 18px;
+}
+div#sign .wrap > .input-wrap input[type="text"]{
+    width : 380px;
+    background-color : transparent;
+    border : none;
+    border-bottom: 1px solid lightgray;
+    transition: .5s all ease-in-out;
+    color : white;
+    font-size : 1.2rem;
+}
+div#sign .wrap > .input-wrap input[type="text"]:focus{
+    border-bottom: 1px solid orange;
+}
+div#sign .wrap > .input-wrap #sign-submit {
+    margin-left: 24px;
+    background-color: orange;
+    width : 120px;
+    color : black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s all ease-in-out;
+}
+div#sign .wrap > .input-wrap #sign-submit:disabled{
+    cursor : default;
+    background-color: lightgray;
+    color : black;
+}
+
+
+/* key manager */
+div#key-manager {
+    margin : 12px 34px;    
+    cursor : default;
+    display : flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+div#key-manager .wrong-docs{
+    width : 1108px;
+    background-color : orange;
+    padding : 8px 12px;
+    border-radius: 8px;
+}
+div#key-manager .wrong-docs > .title .simbol{
+    font-size : 3.2rem;
+}
+div#key-manager .wrong-docs > .title .text {
+    margin-left : 12px;
+    font-size : 1.8rem;
+    font-weight: bold;
+}
+div#key-manager .wrong-docs > .wrap {
+    font-size : 1.4rem;
+    line-height: 6px;
+}
+
+div#key-manager .keys{
+    margin-top : 24px;
+}
+div#key-manager .keys .top{
+    position: relative;
+}
+div#key-manager .keys .top > .title .simbol {
+    font-size : 3.8rem;
+}
+div#key-manager .keys .top > .title .text{
+    font-size : 1.8rem;
+    font-weight: bold;
+    margin-left : 12px;
+}
+div#key-manager .keys .top > button#load{
+    position : relative;
+    top : -2px;
+    margin-left : 12px;
+    padding-left : 18px;
+    padding-right : 18px;
+    background-color : orange;
+    color : white;
+    font-weight: bold;
+}
+
+div#key-manager .keys .bottom {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+div#key-manager .keys .bottom > .key-table{
+    margin-top : 24px;
+    width : 1120px; 
+    height : 348px;
+    background-color : #1a1a1b;
+    border : 1px solid white;
+    border-radius: 5px;
+}
+div#key-manager .keys .bottom > div#is-not-key{
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color : orange;
+}
+div#key-manager .keys .bottom > div#is-not-key > span > .simbol{
+    font-size: 6.2rem;
+}
+div#key-manager .keys .bottom > div#is-not-key > span > .title{
+    font-size: 4.2rem;
+    margin-left : 18px;
+}
+div#key-manager .keys .bottom > div#is-key{
+    padding : 0;
+}
+div#key-manager .keys .bottom > div#is-key ul.keys-tb{
+    margin : 0 0;
+    padding : 0 0;
+}
+div#key-manager .keys .bottom > div#is-key ul.keys-tb .key{
+    position: relative;
+    padding : 12px 8px;
+    border-bottom : 1px solid white;
+    line-height: 28px;
+    cursor : pointer;
+    overflow: hidden;
+}
+div#key-manager .keys .bottom > div#is-key ul.keys-tb .key > .cover{ 
+    position : absolute;
+    top : 0;
+    left : 0;
+    width  :100%;
+    height : 100%;
+    background-color : rgba(0, 0, 0, 0.6);
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index : 1;
+    cursor : default;
+}
+
+div#key-manager .keys .bottom > div#is-key ul.keys-tb .key > .cover > span,
+div#key-manager .keys .bottom > div#is-key ul.keys-tb .key > .active-cover > span{
+    font-size : 2.4rem;
+    font-weight: bold;
+    font-style: oblique;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+}
+div#key-manager .keys .bottom > div#is-key ul.keys-tb .key > .active-cover{
+    position : absolute;
+    top : 0;
+    left : 0;
+    width  :100%;
+    height : 100%;
+    background-color : rgba(0, 0, 0, 0.6);
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index : 2;
+    cursor : pointer;
+    color : orange;
+    transition : .3s all ease-in-out;
+    opacity: 0;
+    transform: translateY(-70px);
+}
+div#key-manager .keys .bottom > div#is-key ul.keys-tb .key > .active-cover.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+div#key-manager .keys .bottom > div#is-key ul.keys-tb .key .text > #access {
+    font-size : 1.6rem;
+}
+div#key-manager .keys .bottom > div#is-key ul.keys-tb .key .text > #access > .title {
+    background-color : orange;
+    padding : 2px 4px;
+    border-radius: 5px;
 }
