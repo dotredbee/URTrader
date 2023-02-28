@@ -36,6 +36,6 @@ npm release
 <img src="https://user-images.githubusercontent.com/101415997/210132897-3e847a7c-5d14-44e8-b7a0-06829f2821b7.PNG" witdh="160" height="320"/>
 
 ### 2.2 키 관리자 🔑
-API KEY 수명은 1년이기에 키 교체는 불가피합니다. 때문에 해당 프로그램은 자체적으로 키 관리자를 통해 손쉽게 교체가 가능합니다. <br />
+API KEY 수명은 1년이기에 키 교체는 불가피합니다. 때문에 해당 프로그램은 자체적으로 키 관리자를 통해 손쉽게 교체가 가능하도록 제작되었습니다. <br />
 로컬DB에 이용중인 API KEY가 저장되며 이는 재실행시 변경된 키로 실행됩니다. <br /><br />
 <img src="https://user-images.githubusercontent.com/101415997/210133050-c71970a2-19cf-4e14-8067-6b7b29733765.PNG" witdh="160" height="320"/>
